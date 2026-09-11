@@ -127,6 +127,7 @@ nav.links a:hover{ color:var(--ink); }
 .kpi .n span{ color:var(--accent); }
 .kpi .l{ margin-top:4px; font-size:0.82rem; color:var(--ink-soft); }
 @media (max-width:760px){ .kpi-strip{ grid-template-columns:repeat(2,1fr); } .kpi:nth-child(3){ border-left:none; } }
+.hero .eyebrow{ margin-bottom:18px; }
 
 /* ---------- section scaffolding ---------- */
 section{ padding:88px 0; border-bottom:1px solid var(--line); }
@@ -152,6 +153,17 @@ section:last-of-type{ border-bottom:none; }
 .skill-bar i{ position:absolute; inset:0 auto 0 0; background:var(--teal); }
 .skill-tools{ font-family:'IBM Plex Mono',monospace; font-size:0.74rem; color:var(--ink-soft); text-align:right; white-space:nowrap; }
 
+/* ---------- soft skills ---------- */
+.soft-head{ margin-top:64px; }
+.soft-head .eyebrow-sm{ font-family:'IBM Plex Mono',monospace; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal); margin-bottom:10px; }
+.soft-head h3{ font-size:1.3rem; font-weight:500; max-width:36ch; }
+.soft-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); margin-top:26px; border:1px solid var(--line); }
+@media (max-width:760px){ .soft-grid{ grid-template-columns:1fr; } }
+.soft-card{ background:var(--bg); padding:24px; }
+.soft-card .k{ font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); }
+.soft-card h4{ font-family:'Fraunces',serif; font-weight:500; font-size:1.08rem; margin-top:8px; }
+.soft-card p{ margin:8px 0 0; color:var(--ink-soft); font-size:0.9rem; }
+
 /* ---------- experience log ---------- */
 .log{ border-top:1px solid var(--line); }
 .log-entry{ display:grid; grid-template-columns:150px 1fr; gap:28px; padding:26px 0; border-bottom:1px solid var(--line); }
@@ -165,6 +177,16 @@ section:last-of-type{ border-bottom:none; }
 .log-entry.compact .log-role{ font-size:0.98rem; }
 .log-entry.compact .log-body{ color:var(--ink-soft); font-size:0.92rem; margin-top:2px; }
 .prior-label{ font-family:'IBM Plex Mono',monospace; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-soft); margin:36px 0 4px; }
+
+.log-group{ border-bottom:1px solid var(--line); padding:26px 0; }
+.log-group-head{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+.log-group-head .log-co{ font-size:1.05rem; }
+.log-group-head .mono{ font-size:0.78rem; color:var(--ink-soft); }
+.log-role-sub{ display:grid; grid-template-columns:150px 1fr; gap:28px; padding:16px 0 16px 18px; border-left:2px solid var(--line); margin-left:4px; }
+.log-role-sub + .log-role-sub{ border-top:1px dashed var(--line); }
+@media (max-width:680px){ .log-role-sub{ grid-template-columns:1fr; gap:4px; padding-left:14px; } }
+.log-role-sub .log-date{ padding-top:2px; }
+.log-role-sub .log-role{ font-size:0.98rem; }
 
 /* ---------- projects ---------- */
 .project{ padding:48px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:1fr; gap:28px; }
@@ -189,18 +211,18 @@ section:last-of-type{ border-bottom:none; }
 .shot-strip figure{ margin:0; border:1px solid var(--line); background:var(--paper-card); }
 .shot-strip img{ aspect-ratio:16/9.4; object-fit:cover; object-position:top; }
 .shot-strip figcaption{ font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--ink-soft); padding:7px 10px; border-top:1px solid var(--line); }
+.shot-label{ font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin:6px 0 10px; }
 
-/* ---------- certifications ledger ---------- */
-.ledger{ width:100%; border-collapse:collapse; font-size:0.94rem; }
-.ledger th{ text-align:left; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); padding:0 14px 12px 0; border-bottom:1px solid var(--line-strong); font-weight:500; }
-.ledger td{ padding:16px 14px 16px 0; border-bottom:1px solid var(--line); vertical-align:middle; }
-.ledger tr:hover td{ background:var(--bg-raised); }
-.cert-name{ font-weight:600; }
-.cert-issuer{ color:var(--ink-soft); font-size:0.85rem; }
-.ledger .mono{ color:var(--ink-soft); font-size:0.85rem; }
-.cert-thumb-btn{ width:38px; height:38px; border:1px solid var(--line-strong); background:var(--paper-card); cursor:pointer; padding:0; overflow:hidden; border-radius:3px; }
+/* ---------- certifications ---------- */
+.cert-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+@media (max-width:760px){ .cert-grid{ grid-template-columns:1fr; } }
+.cert-card{ background:var(--bg); padding:22px; display:grid; grid-template-columns:52px 1fr; gap:16px; }
+.cert-thumb-btn{ width:52px; height:52px; border:1px solid var(--line-strong); background:var(--paper-card); cursor:pointer; padding:0; overflow:hidden; border-radius:3px; align-self:start; }
 .cert-thumb-btn img{ width:100%; height:100%; object-fit:cover; }
-@media (max-width:680px){ .ledger .hide-mobile{ display:none; } }
+.cert-name{ font-weight:600; font-size:0.98rem; }
+.cert-meta{ font-family:'IBM Plex Mono',monospace; font-size:0.74rem; color:var(--ink-soft); margin-top:2px; }
+.cert-meta .dot{ margin:0 6px; }
+.cert-desc{ margin-top:8px; font-size:0.87rem; color:var(--ink-soft); }
 
 /* lightbox */
 #lightbox{ position:fixed; inset:0; background:rgba(10,14,15,0.86); display:none; align-items:center; justify-content:center; z-index:100; padding:32px; }
@@ -263,7 +285,7 @@ footer{ padding:80px 0 56px; }
 <div id="top"></div>
 <section class="hero ruled" style="border-bottom:1px solid var(--line); padding-bottom:0;">
   <div class="wrap">
-    <p class="eyebrow">Giza, Egypt — Available for data analyst roles</p>
+    <p class="eyebrow">Giza, Egypt</p>
     <h1 class="reveal">Omar Moussa<br><i>turns raw tables</i> into decisions.</h1>
     <p class="hero-sub reveal">Data Analyst building Power BI &amp; Tableau dashboards on top of SQL and Python — with seven years on the operations side of the business first, so the reports answer the question the CEO actually asked.</p>
     <div class="hero-links reveal">
@@ -273,8 +295,8 @@ footer{ padding:80px 0 56px; }
     </div>
   </div>
   <div class="kpi-strip">
-    <div class="kpi"><div class="n tnum"><span>3,300</span>+</div><div class="l">Investment contracts modeled</div></div>
-    <div class="kpi"><div class="n tnum">724M <span>EGP</span></div><div class="l">Assets under management analyzed</div></div>
+    <div class="kpi"><div class="n tnum"><span>6</span></div><div class="l">Certifications &amp; diplomas earned</div></div>
+    <div class="kpi"><div class="n tnum"><span>5</span></div><div class="l">Analytics tools mastered</div></div>
     <div class="kpi"><div class="n tnum">7<span>+</span></div><div class="l">Years in analytics &amp; operations</div></div>
     <div class="kpi"><div class="n tnum"><span>4</span></div><div class="l">End-to-end dashboards shipped</div></div>
   </div>
@@ -299,6 +321,33 @@ footer{ padding:80px 0 56px; }
         </div>
       </div>
     </div>
+
+    <div class="soft-head">
+      <div class="eyebrow-sm">Where the analytical edge actually comes from</div>
+      <h3>Seven years reading a business from the operations side, before I ever read it from a dashboard.</h3>
+      <div class="soft-grid">
+        <div class="soft-card">
+          <div class="k">Business fluency</div>
+          <h4>I owned the KPI before I ever modeled it</h4>
+          <p>Response time, resolution rate, CSAT — I managed those numbers on a support floor first. I know which metric a manager actually watches on a bad day, so that's the one the dashboard leads with.</p>
+        </div>
+        <div class="soft-card">
+          <div class="k">Stakeholder translation</div>
+          <h4>Bridging technical and business teams</h4>
+          <p>As Fawry's UAT bridge between engineering and merchants, I turned vague field complaints into specific bug tickets. Now that same translation runs between raw SQL output and a one-line insight an executive can act on.</p>
+        </div>
+        <div class="soft-card">
+          <div class="k">Escalation triage</div>
+          <h4>Separating signal from noise, fast</h4>
+          <p>Years of live customer escalations under SLA pressure built the instinct to spot what actually matters right now — the same instinct that flags which anomaly in 3,300 contracts needs the CEO's attention today, not the other forty that don't.</p>
+        </div>
+        <div class="soft-card">
+          <div class="k">Documentation discipline</div>
+          <h4>Writing it down is how I learn it</h4>
+          <p>Building a team knowledge base at Sympl became building the Tableau and Power BI knowledge bases below — the same habit, aimed at a new subject.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -307,7 +356,7 @@ footer{ padding:80px 0 56px; }
     <div class="section-head"><span class="section-num">02</span><h2>Experience</h2><span class="section-tag">2019 — Present</span></div>
     <div class="log">
       <div class="log-entry">
-        <div class="log-date mono">MAY 2026<br>— PRESENT</div>
+        <div class="log-date mono">JUN 2026<br>— PRESENT</div>
         <div>
           <div class="log-role">Data Analyst · <span class="log-co">Smart &amp; Value Group</span></div>
           <div class="log-body">
@@ -321,13 +370,17 @@ footer{ padding:80px 0 56px; }
         </div>
       </div>
       <div class="log-entry">
-        <div class="log-date mono">JAN 2025<br>— MAY 2026</div>
+        <div class="log-date mono">JAN 2025<br>— JUN 2026</div>
         <div>
-          <div class="log-role">UAT Business Operations Specialist · <span class="log-co">Fawry for Banking &amp; Payment Technology</span></div>
+          <div class="log-role">Business Operations Specialist (UAT) · <span class="log-co">Fawry for Banking &amp; Payment Technology</span></div>
           <div class="log-body">
             <ul>
-              <li>Ran User Acceptance Testing on Fawry POS systems ahead of market release — features, bug fixes, and performance changes.</li>
-              <li>Managed end-to-end rollout of new POS releases across the merchant network; acted as the technical-business bridge, translating merchant issues into system requirements.</li>
+              <li>Ran User Acceptance Testing (UAT) for Fawry POS systems, ensuring the quality and functionality of new features, bug fixes, and performance enhancements before market release.</li>
+              <li>Collaborated with product and development teams to validate and sign off on software releases, reporting defects and following through on fixes and improvements.</li>
+              <li>Managed the end-to-end rollout plan for new POS software releases, ensuring smooth deployment and adoption across the merchant network.</li>
+              <li>Served as the key operational contact for all market merchants using Fawry POS devices, resolving technical and operational issues to maintain service quality and uptime.</li>
+              <li>Acted as the bridge between technical and business teams, translating user requirements into actionable feedback and system enhancements.</li>
+              <li>Coordinated cross-functional efforts to support merchant onboarding and ensure POS devices were configured and functioning optimally in the field.</li>
             </ul>
           </div>
         </div>
@@ -335,21 +388,73 @@ footer{ padding:80px 0 56px; }
     </div>
     <div class="prior-label">Prior — Customer Operations Leadership</div>
     <div class="log">
-      <div class="log-entry compact">
-        <div class="log-date mono">2022 – 2025</div>
-        <div><div class="log-role">Customer Support Supervisor · <span class="log-co">SYMPL Fintech Solutions</span></div><div class="log-body">Led a support team reporting directly to C-levels; owned response-time, resolution-rate, and CSAT metrics for the department.</div></div>
+      <div class="log-group">
+        <div class="log-group-head"><span class="log-co">Sympl Fintech Solutions</span><span class="mono">3 yrs 1 mo · El Sheikh Zaid, Giza</span></div>
+        <div class="log-role-sub">
+          <div class="log-date mono">NOV 2023<br>— JAN 2025</div>
+          <div>
+            <div class="log-role">Customer Support Supervisor</div>
+            <div class="log-body">
+              <ul>
+                <li>Reported directly to C-level leadership; managed and led a team of customer support representatives.</li>
+                <li>Developed and implemented strategies to improve customer satisfaction and operational efficiency.</li>
+                <li>Monitored department performance using response times, resolution rates, and customer feedback.</li>
+                <li>Handled escalated customer complaints, resolving them in a timely and effective manner.</li>
+                <li>Hired, trained, and mentored new team members; implemented and maintained support policies and procedures.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="log-role-sub">
+          <div class="log-date mono">JAN 2022<br>— NOV 2023</div>
+          <div>
+            <div class="log-role">Customer Support Team Lead</div>
+            <div class="log-body">
+              <ul>
+                <li>Managed team staffing and scheduling to maintain service levels, with regular one-to-one coaching to develop agent performance.</li>
+                <li>Designed a reporting base covering call volume, SLA, and quality score across all support channels.</li>
+                <li>Set challenging, achievable KPIs for the team and monitored reporting to make sure they were met.</li>
+                <li>Built a full knowledge database to deliver consistent information and tips to every team member.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="log-group">
+        <div class="log-group-head"><span class="log-co">Etisal International Group</span><span class="mono">2 yrs 6 mos · Abbassya Square</span></div>
+        <div class="log-role-sub">
+          <div class="log-date mono">APR 2021<br>— JAN 2022</div>
+          <div>
+            <div class="log-role">Customer Support Team Lead</div>
+            <div class="log-body">
+              <ul>
+                <li>Ran floor shifts, managing queue service levels and sending end-of-day handovers to clients and management with justifications and feedback.</li>
+                <li>Monitored and evaluated agent performance, providing coaching and corrective action where needed.</li>
+                <li>Prepared reports and analyzed data to help management set customer service goals; identified operational issues and suggested improvements.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="log-role-sub">
+          <div class="log-date mono">OCT 2020<br>— APR 2021</div>
+          <div>
+            <div class="log-role">Senior Support Specialist</div>
+            <div class="log-body">
+              <ul>
+                <li>Shared resources and knowledge to support agents' learning and development toward a high standard of performance.</li>
+                <li>Developed and upgraded the Fawry account knowledge base to be more organized and clear.</li>
+                <li>Coached agents on best practices for difficult calls and ensured compliance with call-center standards.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="log-entry compact">
-        <div class="log-date mono">2021 – 2022</div>
-        <div><div class="log-role">Customer Support Team Lead · <span class="log-co">Etisal International Group</span></div><div class="log-body">Managed floor-level queue service levels and daily handover reporting for clients and management.</div></div>
-      </div>
-      <div class="log-entry compact">
-        <div class="log-date mono">2020 – 2021</div>
-        <div><div class="log-role">Senior Support Specialist · <span class="log-co">Etisal International Group</span></div><div class="log-body">Maintained the Fawry knowledge base and coached agents on call-center performance standards.</div></div>
-      </div>
-      <div class="log-entry compact">
-        <div class="log-date mono">2019 – 2020</div>
-        <div><div class="log-role">Customer Support Representative · <span class="log-co">Teleperformance</span></div><div class="log-body">High-volume customer support with full CRM interaction logging.</div></div>
+        <div class="log-date mono">JAN 2019 – AUG 2019</div>
+        <div>
+          <div class="log-role">Customer Support Representative · <span class="log-co">Teleperformance</span></div>
+          <div class="log-body">Supported colleagues off-queue as the team's most knowledgeable agent on the Fawry account; achieved high satisfaction ratings through proactive one-call issue resolution and clear explanation of payment and billing details.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -438,6 +543,14 @@ footer{ padding:80px 0 56px; }
       <div class="project-links">
         <a href="https://github.com/omarmoussa724/brightcart-ecommerce-profitability-analysis" target="_blank" rel="noopener">Source ↗</a>
       </div>
+      <div class="shot-label">MySQL — extraction &amp; analysis</div>
+      <div class="shot-strip">
+        <figure><img src="assets/brightcart/sql-1.png" alt="MySQL query: revenue and order count by category" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Category profitability query</figcaption></figure>
+        <figure><img src="assets/brightcart/sql-2.png" alt="MySQL query: revenue and platform fees by channel" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Channel analysis query</figcaption></figure>
+        <figure><img src="assets/brightcart/sql-3.png" alt="MySQL query: return rate by category" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Return rate query</figcaption></figure>
+        <figure><img src="assets/brightcart/sql-4.png" alt="MySQL query: spend and revenue by platform" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Marketing ROI query</figcaption></figure>
+      </div>
+      <div class="shot-label">Power BI — dashboard views</div>
       <div class="shot-strip">
         <figure><img src="assets/brightcart/1.png" alt="BrightCart executive overview" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Executive overview</figcaption></figure>
         <figure><img src="assets/brightcart/2.png" alt="BrightCart category profitability" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Category profitability</figcaption></figure>
@@ -451,49 +564,56 @@ footer{ padding:80px 0 56px; }
 
 <section id="certifications">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">04</span><h2>Certifications</h2><span class="section-tag">Click to view</span></div>
-    <div style="overflow-x:auto;">
-    <table class="ledger">
-      <thead><tr><th></th><th>Credential</th><th class="hide-mobile">Issuer</th><th>Issued</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/powerbi-desktop.png')"><img src="assets/certs/powerbi-desktop.png" alt=""></button></td>
-          <td><div class="cert-name">Microsoft Power BI Desktop for Business Intelligence</div><div class="cert-issuer">Power Query · DAX · dashboard publishing</div></td>
-          <td class="hide-mobile mono">Analyst Builder</td>
-          <td class="mono tnum">Mar 2026</td>
-        </tr>
-        <tr>
-          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/tableau-dataviz.png')"><img src="assets/certs/tableau-dataviz.png" alt=""></button></td>
-          <td><div class="cert-name">Tableau Desktop Certified Professional</div><div class="cert-issuer">Data modeling · calculated fields · viz best practices</div></td>
-          <td class="hide-mobile mono">Analyst Builder</td>
-          <td class="mono tnum">Feb 2026</td>
-        </tr>
-        <tr>
-          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/mysql.png')"><img src="assets/certs/mysql.png" alt=""></button></td>
-          <td><div class="cert-name">MySQL for Data Analytics</div><div class="cert-issuer">Joins · subqueries · aggregations</div></td>
-          <td class="hide-mobile mono">Analyst Builder</td>
-          <td class="mono tnum">Dec 2025</td>
-        </tr>
-        <tr>
-          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/advanced-data-analysis.jpeg')"><img src="assets/certs/advanced-data-analysis.jpeg" alt=""></button></td>
-          <td><div class="cert-name">Advanced Data Analysis Diploma</div><div class="cert-issuer">48 accredited hours · IAO-accredited · SQL, Python, Tableau</div></td>
-          <td class="hide-mobile mono">eyouth</td>
-          <td class="mono tnum">Aug 2025</td>
-        </tr>
-        <tr>
-          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/nocode-ai.jpeg')"><img src="assets/certs/nocode-ai.jpeg" alt=""></button></td>
-          <td><div class="cert-name">No-Code AI for Business</div><div class="cert-issuer">36 workshop hours · AI-powered workflow automation</div></td>
-          <td class="hide-mobile mono">Notpy / DOTPY</td>
-          <td class="mono tnum">Jul 2025</td>
-        </tr>
-        <tr>
-          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/excel-powerbi.jpeg')"><img src="assets/certs/excel-powerbi.jpeg" alt=""></button></td>
-          <td><div class="cert-name">Excel &amp; Power BI for Data Analytics</div><div class="cert-issuer">40 training hours · Power Query, DAX, data modeling</div></td>
-          <td class="hide-mobile mono">Notpy / DOTPY</td>
-          <td class="mono tnum">May 2025</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="section-head"><span class="section-num">04</span><h2>Certifications</h2><span class="section-tag">Click a badge to view</span></div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <button class="cert-thumb-btn" onclick="openLightbox('assets/certs/powerbi-desktop.png')"><img src="assets/certs/powerbi-desktop.png" alt="Power BI Desktop certificate"></button>
+        <div>
+          <div class="cert-name">Microsoft Power BI Desktop for Business Intelligence</div>
+          <div class="cert-meta">Analyst Builder<span class="dot">·</span>Mar 2026</div>
+          <p class="cert-desc">Developed business intelligence solutions using Power BI, including data transformation with Power Query, DAX measures, interactive report design, and dashboard publishing to deliver actionable insights.</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <button class="cert-thumb-btn" onclick="openLightbox('assets/certs/tableau-dataviz.png')"><img src="assets/certs/tableau-dataviz.png" alt="Tableau for Data Visualization certificate"></button>
+        <div>
+          <div class="cert-name">Tableau Desktop Certified Professional</div>
+          <div class="cert-meta">Analyst Builder<span class="dot">·</span>Feb 2026</div>
+          <p class="cert-desc">Built interactive dashboards using Tableau, applying data modeling, calculated fields, table calculations, and visualization best practices to deliver business insights.</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <button class="cert-thumb-btn" onclick="openLightbox('assets/certs/mysql.png')"><img src="assets/certs/mysql.png" alt="MySQL for Data Analytics certificate"></button>
+        <div>
+          <div class="cert-name">MySQL for Data Analytics</div>
+          <div class="cert-meta">Analyst Builder<span class="dot">·</span>Dec 2025</div>
+          <p class="cert-desc">Wrote advanced SQL queries — joins, subqueries, aggregations — to extract, analyze, and transform data for reporting and decision-making.</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <button class="cert-thumb-btn" onclick="openLightbox('assets/certs/advanced-data-analysis.jpeg')"><img src="assets/certs/advanced-data-analysis.jpeg" alt="Advanced Data Analysis Diploma certificate"></button>
+        <div>
+          <div class="cert-name">Advanced Data Analysis Diploma</div>
+          <div class="cert-meta">eyouth<span class="dot">·</span>48 hrs, IAO-accredited<span class="dot">·</span>Aug 2025</div>
+          <p class="cert-desc">Used applied SQL, Python (Pandas, NumPy), and Tableau for data cleaning, exploratory analysis, and building insight-driven dashboards.</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <button class="cert-thumb-btn" onclick="openLightbox('assets/certs/nocode-ai.jpeg')"><img src="assets/certs/nocode-ai.jpeg" alt="No-Code AI certificate"></button>
+        <div>
+          <div class="cert-name">No-Code AI for Business</div>
+          <div class="cert-meta">Notpy / DOTPY<span class="dot">·</span>36 workshop hrs<span class="dot">·</span>Jul 2025</div>
+          <p class="cert-desc">Designed AI-powered workflows and automation solutions using no-code tools to improve operational efficiency.</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <button class="cert-thumb-btn" onclick="openLightbox('assets/certs/excel-powerbi.jpeg')"><img src="assets/certs/excel-powerbi.jpeg" alt="Excel and Power BI certificate"></button>
+        <div>
+          <div class="cert-name">Excel &amp; Power BI for Data Analytics</div>
+          <div class="cert-meta">Notpy / DOTPY<span class="dot">·</span>40 training hrs<span class="dot">·</span>May 2025</div>
+          <p class="cert-desc">Developed dynamic reports and dashboards using Excel, Power Query, DAX, and Power BI for data modeling and business analysis.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -564,6 +684,8 @@ footer{ padding:80px 0 56px; }
     </div>
     <div class="contact-cta">
       <a class="pill solid" href="mailto:omarmoussa724@gmail.com">✉ omarmoussa724@gmail.com</a>
+      <a class="pill" href="tel:+201116983344">☎ 01116983344</a>
+      <a class="pill" href="tel:+201044252552">☎ 01044252552</a>
       <a class="pill" href="https://www.linkedin.com/in/omar-moussa-a9121523b" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a class="pill" href="https://github.com/omarmoussa724" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
