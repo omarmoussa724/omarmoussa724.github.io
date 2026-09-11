@@ -1,0 +1,594 @@
+<title>Omar Moussa</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --bg:#EEF1EE;
+  --bg-raised:#E4E8E3;
+  --ink:#12181A;
+  --ink-soft:#454F4E;
+  --line:#C6CCC3;
+  --line-strong:#9FA79B;
+  --accent:#B9701F;
+  --accent-soft:#E7D3B7;
+  --teal:#1F6F6B;
+  --teal-soft:#CFE3E1;
+  --neg:#A6432F;
+  --paper-card:#F7F8F4;
+  --shadow: 0 1px 0 rgba(18,24,26,0.06);
+  --focus: #1F6F6B;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12181A;
+    --bg-raised:#182022;
+    --ink:#ECEAE1;
+    --ink-soft:#B7BDB4;
+    --line:#2C3634;
+    --line-strong:#3E4A47;
+    --accent:#E7A94A;
+    --accent-soft:#3A2E1B;
+    --teal:#5FB3AC;
+    --teal-soft:#1B3230;
+    --neg:#DE8C7B;
+    --paper-card:#161D1F;
+    --shadow: 0 1px 0 rgba(0,0,0,0.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12181A;
+  --bg-raised:#182022;
+  --ink:#ECEAE1;
+  --ink-soft:#B7BDB4;
+  --line:#2C3634;
+  --line-strong:#3E4A47;
+  --accent:#E7A94A;
+  --accent-soft:#3A2E1B;
+  --teal:#5FB3AC;
+  --teal-soft:#1B3230;
+  --neg:#DE8C7B;
+  --paper-card:#161D1F;
+  --shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  font-size:16px;
+  line-height:1.55;
+}
+::selection{ background:var(--accent-soft); color:var(--ink); }
+a{ color:var(--teal); }
+a:focus-visible, button:focus-visible, summary:focus-visible{
+  outline:2px solid var(--focus); outline-offset:3px; border-radius:2px;
+}
+img{ display:block; width:100%; height:auto; }
+h1,h2,h3{ font-family:'Fraunces', Georgia, serif; text-wrap:balance; margin:0; }
+.mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+.tnum{ font-variant-numeric:tabular-nums; }
+
+.wrap{ max-width:1160px; margin:0 auto; padding:0 32px; }
+@media (max-width:640px){ .wrap{ padding:0 20px; } }
+
+/* ---------- ruled ground texture ---------- */
+.ruled{
+  background-image: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px 120px);
+  background-position: 0 0;
+}
+
+/* ---------- top nav ---------- */
+header.site{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.navrow{ display:flex; align-items:center; justify-content:space-between; height:60px; }
+.brand{ font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; letter-spacing:0.01em; color:var(--ink); text-decoration:none; }
+.brand em{ font-style:italic; color:var(--accent); }
+nav.links{ display:flex; gap:28px; }
+nav.links a{ color:var(--ink-soft); text-decoration:none; font-size:0.86rem; font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em; }
+nav.links a:hover{ color:var(--ink); }
+@media (max-width:720px){ nav.links{ display:none; } }
+
+/* ---------- hero ---------- */
+.hero{ padding:76px 0 40px; }
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--teal); display:flex; align-items:center; gap:10px; margin-bottom:18px;
+}
+.eyebrow::before{ content:""; width:7px; height:7px; background:var(--accent); border-radius:50%; display:inline-block; }
+.hero h1{ font-size:clamp(2.6rem, 6vw, 4.6rem); font-weight:500; line-height:1.02; letter-spacing:-0.01em; }
+.hero h1 i{ font-style:italic; color:var(--accent); font-weight:500; }
+.hero-sub{ max-width:56ch; margin-top:22px; font-size:1.14rem; color:var(--ink-soft); }
+.hero-links{ display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+.pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 16px; border:1px solid var(--line-strong); border-radius:100px;
+  text-decoration:none; color:var(--ink); font-size:0.88rem; font-family:'IBM Plex Mono',monospace;
+  transition:border-color .15s, background .15s;
+}
+.pill:hover{ border-color:var(--teal); background:var(--teal-soft); }
+.pill.solid{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.pill.solid:hover{ background:var(--teal); border-color:var(--teal); color:var(--bg); }
+
+/* KPI ticker strip */
+.kpi-strip{
+  margin-top:56px; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  display:grid; grid-template-columns:repeat(4,1fr);
+}
+.kpi{ padding:22px 24px; border-left:1px solid var(--line); }
+.kpi:first-child{ border-left:none; }
+.kpi .n{ font-family:'IBM Plex Mono',monospace; font-size:clamp(1.5rem,3vw,2.1rem); font-weight:600; color:var(--ink); }
+.kpi .n span{ color:var(--accent); }
+.kpi .l{ margin-top:4px; font-size:0.82rem; color:var(--ink-soft); }
+@media (max-width:760px){ .kpi-strip{ grid-template-columns:repeat(2,1fr); } .kpi:nth-child(3){ border-left:none; } }
+
+/* ---------- section scaffolding ---------- */
+section{ padding:88px 0; border-bottom:1px solid var(--line); }
+section:last-of-type{ border-bottom:none; }
+.section-head{ display:flex; align-items:baseline; gap:18px; margin-bottom:44px; }
+.section-num{ font-family:'IBM Plex Mono',monospace; color:var(--line-strong); font-size:0.9rem; }
+.section-head h2{ font-size:clamp(1.7rem,3vw,2.3rem); font-weight:500; }
+.section-tag{ margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.08em; }
+@media (max-width:600px){ .section-tag{ display:none; } }
+
+/* ---------- about ---------- */
+.about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:64px; }
+@media (max-width:840px){ .about-grid{ grid-template-columns:1fr; gap:40px; } }
+.about-grid p{ max-width:62ch; color:var(--ink-soft); font-size:1.03rem; }
+.about-grid p + p{ margin-top:16px; }
+.about-grid strong{ color:var(--ink); font-weight:600; }
+
+.skill-legend{ display:flex; flex-direction:column; gap:0; }
+.skill-row{ display:grid; grid-template-columns:120px 1fr auto; align-items:center; gap:14px; padding:13px 0; border-top:1px solid var(--line); }
+.skill-row:last-child{ border-bottom:1px solid var(--line); }
+.skill-name{ font-weight:600; font-size:0.92rem; }
+.skill-bar{ height:6px; background:var(--bg-raised); position:relative; overflow:hidden; }
+.skill-bar i{ position:absolute; inset:0 auto 0 0; background:var(--teal); }
+.skill-tools{ font-family:'IBM Plex Mono',monospace; font-size:0.74rem; color:var(--ink-soft); text-align:right; white-space:nowrap; }
+
+/* ---------- experience log ---------- */
+.log{ border-top:1px solid var(--line); }
+.log-entry{ display:grid; grid-template-columns:150px 1fr; gap:28px; padding:26px 0; border-bottom:1px solid var(--line); }
+@media (max-width:680px){ .log-entry{ grid-template-columns:1fr; gap:6px; } }
+.log-date{ font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--ink-soft); padding-top:3px; }
+.log-role{ font-weight:600; font-size:1.08rem; }
+.log-co{ color:var(--teal); font-weight:600; }
+.log-body ul{ margin:12px 0 0; padding-left:18px; color:var(--ink-soft); font-size:0.95rem; }
+.log-body li + li{ margin-top:6px; }
+.log-entry.compact{ padding:16px 0; }
+.log-entry.compact .log-role{ font-size:0.98rem; }
+.log-entry.compact .log-body{ color:var(--ink-soft); font-size:0.92rem; margin-top:2px; }
+.prior-label{ font-family:'IBM Plex Mono',monospace; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-soft); margin:36px 0 4px; }
+
+/* ---------- projects ---------- */
+.project{ padding:48px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:1fr; gap:28px; }
+.project:first-of-type{ border-top:none; }
+.project-head{ display:grid; grid-template-columns:1fr auto; gap:24px; align-items:start; }
+.project-title{ font-size:1.5rem; font-weight:500; }
+.project-desc{ margin-top:8px; max-width:60ch; color:var(--ink-soft); }
+.project-tags{ display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
+.tag{ font-family:'IBM Plex Mono',monospace; font-size:0.72rem; padding:4px 9px; border:1px solid var(--line-strong); border-radius:4px; color:var(--ink-soft); }
+.project-metric{ text-align:right; white-space:nowrap; }
+.project-metric .n{ font-family:'IBM Plex Mono',monospace; font-size:1.9rem; font-weight:600; color:var(--accent); }
+.project-metric .l{ font-size:0.76rem; color:var(--ink-soft); max-width:16ch; margin-left:auto; }
+@media (max-width:640px){ .project-head{ grid-template-columns:1fr; } .project-metric{ text-align:left; } .project-metric .l{ margin-left:0; } }
+.project-links{ display:flex; gap:10px; flex-wrap:wrap; }
+.project-links a{ font-family:'IBM Plex Mono',monospace; font-size:0.82rem; text-decoration:none; display:inline-flex; align-items:center; gap:6px; color:var(--ink); border-bottom:1px solid var(--line-strong); padding-bottom:2px; }
+.project-links a:hover{ color:var(--teal); border-color:var(--teal); }
+.project-links a.live::before{ content:"●"; color:#4d8f5a; font-size:0.6rem; }
+
+.shot-strip{ display:grid; grid-auto-flow:column; grid-auto-columns:minmax(220px, 1fr); gap:12px; overflow-x:auto; padding-bottom:10px; scrollbar-width:thin; }
+.shot-strip::-webkit-scrollbar{ height:6px; }
+.shot-strip::-webkit-scrollbar-thumb{ background:var(--line-strong); border-radius:3px; }
+.shot-strip figure{ margin:0; border:1px solid var(--line); background:var(--paper-card); }
+.shot-strip img{ aspect-ratio:16/9.4; object-fit:cover; object-position:top; }
+.shot-strip figcaption{ font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--ink-soft); padding:7px 10px; border-top:1px solid var(--line); }
+
+/* ---------- certifications ledger ---------- */
+.ledger{ width:100%; border-collapse:collapse; font-size:0.94rem; }
+.ledger th{ text-align:left; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); padding:0 14px 12px 0; border-bottom:1px solid var(--line-strong); font-weight:500; }
+.ledger td{ padding:16px 14px 16px 0; border-bottom:1px solid var(--line); vertical-align:middle; }
+.ledger tr:hover td{ background:var(--bg-raised); }
+.cert-name{ font-weight:600; }
+.cert-issuer{ color:var(--ink-soft); font-size:0.85rem; }
+.ledger .mono{ color:var(--ink-soft); font-size:0.85rem; }
+.cert-thumb-btn{ width:38px; height:38px; border:1px solid var(--line-strong); background:var(--paper-card); cursor:pointer; padding:0; overflow:hidden; border-radius:3px; }
+.cert-thumb-btn img{ width:100%; height:100%; object-fit:cover; }
+@media (max-width:680px){ .ledger .hide-mobile{ display:none; } }
+
+/* lightbox */
+#lightbox{ position:fixed; inset:0; background:rgba(10,14,15,0.86); display:none; align-items:center; justify-content:center; z-index:100; padding:32px; }
+#lightbox.open{ display:flex; }
+#lightbox img{ max-width:min(920px,92vw); max-height:88vh; width:auto; border:1px solid rgba(255,255,255,0.15); box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+#lightbox button{ position:absolute; top:20px; right:24px; background:none; border:1px solid rgba(255,255,255,0.4); color:#fff; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; padding:8px 14px; border-radius:100px; cursor:pointer; }
+
+/* ---------- knowledge base ---------- */
+.kb-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+@media (max-width:760px){ .kb-grid{ grid-template-columns:1fr; } }
+.kb-card{ border:1px solid var(--line); background:var(--paper-card); display:flex; flex-direction:column; }
+.kb-cover{ padding:30px 26px; color:#ECEAE1; position:relative; overflow:hidden; }
+.kb-cover.t{ background:linear-gradient(155deg,#123B3A,#1F6F6B); }
+.kb-cover.p{ background:linear-gradient(155deg,#241708,#B9701F); }
+.kb-cover .tag{ border-color:rgba(255,255,255,0.35); color:rgba(255,255,255,0.85); }
+.kb-cover h3{ color:#fff; font-size:1.5rem; margin-top:10px; }
+.kb-cover .sub{ color:rgba(255,255,255,0.75); font-size:0.88rem; margin-top:6px; max-width:36ch; }
+.kb-modules{ padding:20px 26px 26px; }
+.kb-modules ol{ margin:0; padding:0; list-style:none; columns:2; column-gap:20px; }
+.kb-modules li{ font-size:0.83rem; padding:6px 0; border-bottom:1px dashed var(--line); color:var(--ink-soft); break-inside:avoid; }
+.kb-modules li b{ font-family:'IBM Plex Mono',monospace; color:var(--accent); margin-right:8px; font-weight:600; }
+
+/* ---------- education ---------- */
+.edu-row{ display:flex; justify-content:space-between; align-items:baseline; padding:22px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); flex-wrap:wrap; gap:8px; }
+.edu-row .deg{ font-weight:600; font-size:1.05rem; }
+.edu-row .inst{ color:var(--ink-soft); }
+.edu-row .yr{ font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); font-size:0.88rem; }
+
+/* ---------- footer / contact ---------- */
+footer{ padding:80px 0 56px; }
+.query-block{
+  font-family:'IBM Plex Mono',monospace; font-size:0.95rem; line-height:1.9;
+  background:var(--paper-card); border:1px solid var(--line); padding:26px 28px;
+  max-width:640px;
+}
+.query-block .kw{ color:var(--teal); font-weight:600; }
+.query-block .str{ color:var(--accent); }
+.contact-cta{ margin-top:36px; display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+.foot-bottom{ margin-top:64px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; color:var(--ink-soft); font-size:0.8rem; font-family:'IBM Plex Mono',monospace; }
+
+@media (prefers-reduced-motion:no-preference){
+  .reveal{ animation: rise .6s ease both; }
+  @keyframes rise{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:none; } }
+}
+</style>
+
+<header class="site">
+  <div class="wrap navrow">
+    <a class="brand" href="#top">Omar Moussa<em>.</em></a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div id="top"></div>
+<section class="hero ruled" style="border-bottom:1px solid var(--line); padding-bottom:0;">
+  <div class="wrap">
+    <p class="eyebrow">Giza, Egypt — Available for data analyst roles</p>
+    <h1 class="reveal">Omar Moussa<br><i>turns raw tables</i> into decisions.</h1>
+    <p class="hero-sub reveal">Data Analyst building Power BI &amp; Tableau dashboards on top of SQL and Python — with seven years on the operations side of the business first, so the reports answer the question the CEO actually asked.</p>
+    <div class="hero-links reveal">
+      <a class="pill solid" href="mailto:omarmoussa724@gmail.com">✉ omarmoussa724@gmail.com</a>
+      <a class="pill" href="https://www.linkedin.com/in/omar-moussa-a9121523b" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="pill" href="https://github.com/omarmoussa724" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+  <div class="kpi-strip">
+    <div class="kpi"><div class="n tnum"><span>3,300</span>+</div><div class="l">Investment contracts modeled</div></div>
+    <div class="kpi"><div class="n tnum">724M <span>EGP</span></div><div class="l">Assets under management analyzed</div></div>
+    <div class="kpi"><div class="n tnum">7<span>+</span></div><div class="l">Years in analytics &amp; operations</div></div>
+    <div class="kpi"><div class="n tnum"><span>4</span></div><div class="l">End-to-end dashboards shipped</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">01</span><h2>About</h2><span class="section-tag">Background</span></div>
+    <div class="about-grid">
+      <div>
+        <p>I studied law at Cairo University, then spent seven years on the front line of operations — answering calls at Teleperformance, running the floor at Etisal, reporting straight to the C-suite as a support supervisor at SYMPL, and finally sitting between engineering and merchants as a UAT specialist at Fawry, Egypt's largest payments network.</p>
+        <p>That path taught me what a report is actually <strong>for</strong>: someone downstream needs to make a call, fast, without re-asking the analyst three follow-up questions. So when I moved into data full-time at Smart &amp; Value Group, I brought that instinct with me — a 6-page Power BI dashboard now tracks <strong>3,300+ investment contracts and 724M EGP in AUM</strong> for the executive team, flags cash-flow risk on 41M EGP in monthly obligations, and feeds the CS and Finance teams the same numbers so nobody argues about whose spreadsheet is right.</p>
+        <p>Outside client work, I write structured knowledge bases on Tableau and Power BI — partly to teach, mostly because writing the steps down is how I actually learn them.</p>
+      </div>
+      <div>
+        <div class="skill-legend">
+          <div class="skill-row"><span class="skill-name">SQL</span><span class="skill-bar"><i style="width:88%"></i></span><span class="skill-tools">SQL Server · MySQL</span></div>
+          <div class="skill-row"><span class="skill-name">Power BI</span><span class="skill-bar"><i style="width:92%"></i></span><span class="skill-tools">DAX · Power Query</span></div>
+          <div class="skill-row"><span class="skill-name">Tableau</span><span class="skill-bar"><i style="width:90%"></i></span><span class="skill-tools">Calc fields · Stories</span></div>
+          <div class="skill-row"><span class="skill-name">Python</span><span class="skill-bar"><i style="width:70%"></i></span><span class="skill-tools">Pandas · NumPy</span></div>
+          <div class="skill-row"><span class="skill-name">Excel</span><span class="skill-bar"><i style="width:85%"></i></span><span class="skill-tools">VLOOKUP · Pivots</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">02</span><h2>Experience</h2><span class="section-tag">2019 — Present</span></div>
+    <div class="log">
+      <div class="log-entry">
+        <div class="log-date mono">MAY 2026<br>— PRESENT</div>
+        <div>
+          <div class="log-role">Data Analyst · <span class="log-co">Smart &amp; Value Group</span></div>
+          <div class="log-body">
+            <ul>
+              <li>Built a 6-page interactive Power BI dashboard analyzing 3,300 investment contracts (724M EGP AUM) — executive, financial performance, contract lifecycle, client, and commission-tracking views.</li>
+              <li>Reconciled periodic return and principal repayment obligations across 3,368 contracts, tracking 41M EGP in monthly payments and flagging cash-flow risk for CEO-level reporting.</li>
+              <li>Designed a contract cancellation/termination priority plan to reduce long-term liability exposure on newer client segments.</li>
+              <li>Standardized CS team performance tracking in Excel; supported cross-functional reporting between Finance, CS, and Executive leadership.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="log-entry">
+        <div class="log-date mono">JAN 2025<br>— MAY 2026</div>
+        <div>
+          <div class="log-role">UAT Business Operations Specialist · <span class="log-co">Fawry for Banking &amp; Payment Technology</span></div>
+          <div class="log-body">
+            <ul>
+              <li>Ran User Acceptance Testing on Fawry POS systems ahead of market release — features, bug fixes, and performance changes.</li>
+              <li>Managed end-to-end rollout of new POS releases across the merchant network; acted as the technical-business bridge, translating merchant issues into system requirements.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="prior-label">Prior — Customer Operations Leadership</div>
+    <div class="log">
+      <div class="log-entry compact">
+        <div class="log-date mono">2022 – 2025</div>
+        <div><div class="log-role">Customer Support Supervisor · <span class="log-co">SYMPL Fintech Solutions</span></div><div class="log-body">Led a support team reporting directly to C-levels; owned response-time, resolution-rate, and CSAT metrics for the department.</div></div>
+      </div>
+      <div class="log-entry compact">
+        <div class="log-date mono">2021 – 2022</div>
+        <div><div class="log-role">Customer Support Team Lead · <span class="log-co">Etisal International Group</span></div><div class="log-body">Managed floor-level queue service levels and daily handover reporting for clients and management.</div></div>
+      </div>
+      <div class="log-entry compact">
+        <div class="log-date mono">2020 – 2021</div>
+        <div><div class="log-role">Senior Support Specialist · <span class="log-co">Etisal International Group</span></div><div class="log-body">Maintained the Fawry knowledge base and coached agents on call-center performance standards.</div></div>
+      </div>
+      <div class="log-entry compact">
+        <div class="log-date mono">2019 – 2020</div>
+        <div><div class="log-role">Customer Support Representative · <span class="log-co">Teleperformance</span></div><div class="log-body">High-volume customer support with full CRM interaction logging.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">03</span><h2>Projects</h2><span class="section-tag">Tableau &amp; Power BI</span></div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">Paper Company Profitability</div>
+          <p class="project-desc">Four years of U.S. sales data for a paper supply company, mapped by geography and category to surface which SKUs actually make money.</p>
+          <div class="project-tags"><span class="tag">Tableau</span><span class="tag">Geo mapping</span><span class="tag">Calculated fields</span></div>
+        </div>
+        <div class="project-metric"><div class="n tnum">+64.5%</div><div class="l">Printing &amp; Tech profit growth</div></div>
+      </div>
+      <div class="project-links">
+        <a class="live" href="https://public.tableau.com/views/tableau-paper-company-profitability/Map?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener">Live dashboard ↗</a>
+        <a href="https://github.com/omarmoussa724/tableau-paper-company-profitability" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+      <div class="shot-strip">
+        <figure><img src="assets/paper/1.png" alt="Geographic profit map by state" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Geographic profit map</figcaption></figure>
+        <figure><img src="assets/paper/2.png" alt="Quantity of sales per category" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Sales volume by category</figcaption></figure>
+        <figure><img src="assets/paper/3.png" alt="Profit by category per year" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Profit by category / year</figcaption></figure>
+        <figure><img src="assets/paper/4.png" alt="Profit per product" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Profit per product</figcaption></figure>
+        <figure><img src="assets/paper/5.png" alt="Purchases per customer segment" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Purchases per segment</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">Call Center KPI Dashboard</div>
+          <p class="project-desc">5,000+ call center records tracking resolution rate, call volume trends, and agent performance for operational decision-making.</p>
+          <div class="project-tags"><span class="tag">Tableau</span><span class="tag">Operations KPIs</span></div>
+        </div>
+        <div class="project-metric"><div class="n tnum">70%</div><div class="l">Resolution rate tracked</div></div>
+      </div>
+      <div class="project-links">
+        <a class="live" href="https://public.tableau.com/app/profile/omar.moussa5835/viz/KPICallCenterProject/Dashboard1" target="_blank" rel="noopener">Live dashboard ↗</a>
+        <a href="https://github.com/omarmoussa724/call-center-kpi-dashboard" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+      <div class="shot-strip">
+        <figure><img src="assets/callcenter/1.png" alt="Call center dashboard view 1" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Overview</figcaption></figure>
+        <figure><img src="assets/callcenter/2.png" alt="Call center dashboard view 2" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Call volume trends</figcaption></figure>
+        <figure><img src="assets/callcenter/3.png" alt="Call center dashboard view 3" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Agent performance</figcaption></figure>
+        <figure><img src="assets/callcenter/4.png" alt="Call center dashboard view 4" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Resolution rate</figcaption></figure>
+        <figure><img src="assets/callcenter/5.png" alt="Call center dashboard view 5" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Customer satisfaction</figcaption></figure>
+        <figure><img src="assets/callcenter/6.png" alt="Call center dashboard view 6" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Detail view</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">Walmart Retail Analytics</div>
+          <p class="project-desc">6-page Power BI dashboard across 5 US store locations — inventory management, demand forecasting, customer segmentation, and promotion effectiveness.</p>
+          <div class="project-tags"><span class="tag">Power BI</span><span class="tag">DAX · CALCULATE / SUMX / SWITCH</span></div>
+        </div>
+        <div class="project-metric"><div class="n tnum">51.9%</div><div class="l">Stockout rate flagged</div></div>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/omarmoussa724/walmart-powerbi-dashboard" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+      <div class="shot-strip">
+        <figure><img src="assets/walmart/1.png" alt="Walmart dashboard executive view" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Executive overview</figcaption></figure>
+        <figure><img src="assets/walmart/2.png" alt="Walmart dashboard inventory view" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Inventory management</figcaption></figure>
+        <figure><img src="assets/walmart/3.png" alt="Walmart dashboard forecasting view" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Demand forecasting</figcaption></figure>
+        <figure><img src="assets/walmart/4.png" alt="Walmart dashboard segmentation view" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Customer segmentation</figcaption></figure>
+        <figure><img src="assets/walmart/5.png" alt="Walmart dashboard promotion view" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Promotion effectiveness</figcaption></figure>
+        <figure><img src="assets/walmart/6.png" alt="Walmart dashboard detail view" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Store detail</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">BrightCart E-Commerce Profitability</div>
+          <p class="project-desc">End-to-end profitability teardown for a DTC e-commerce brand — MySQL for extraction, Power BI for margin, channel, and return-rate analysis across 2,000 orders.</p>
+          <div class="project-tags"><span class="tag">MySQL</span><span class="tag">Power BI</span><span class="tag">Marketing ROAS</span></div>
+        </div>
+        <div class="project-metric"><div class="n tnum">16.18×</div><div class="l">Blended marketing ROAS</div></div>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/omarmoussa724/brightcart-ecommerce-profitability-analysis" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+      <div class="shot-strip">
+        <figure><img src="assets/brightcart/1.png" alt="BrightCart executive overview" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Executive overview</figcaption></figure>
+        <figure><img src="assets/brightcart/2.png" alt="BrightCart category profitability" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Category profitability</figcaption></figure>
+        <figure><img src="assets/brightcart/3.png" alt="BrightCart channel analysis" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Channel analysis</figcaption></figure>
+        <figure><img src="assets/brightcart/4.png" alt="BrightCart return rate analysis" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Return rate impact</figcaption></figure>
+        <figure><img src="assets/brightcart/5.png" alt="BrightCart marketing ROI and budget" loading="lazy" onclick="openLightbox(this.src)"><figcaption>Marketing ROI &amp; budget</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">04</span><h2>Certifications</h2><span class="section-tag">Click to view</span></div>
+    <div style="overflow-x:auto;">
+    <table class="ledger">
+      <thead><tr><th></th><th>Credential</th><th class="hide-mobile">Issuer</th><th>Issued</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/powerbi-desktop.png')"><img src="assets/certs/powerbi-desktop.png" alt=""></button></td>
+          <td><div class="cert-name">Microsoft Power BI Desktop for Business Intelligence</div><div class="cert-issuer">Power Query · DAX · dashboard publishing</div></td>
+          <td class="hide-mobile mono">Analyst Builder</td>
+          <td class="mono tnum">Mar 2026</td>
+        </tr>
+        <tr>
+          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/tableau-dataviz.png')"><img src="assets/certs/tableau-dataviz.png" alt=""></button></td>
+          <td><div class="cert-name">Tableau Desktop Certified Professional</div><div class="cert-issuer">Data modeling · calculated fields · viz best practices</div></td>
+          <td class="hide-mobile mono">Analyst Builder</td>
+          <td class="mono tnum">Feb 2026</td>
+        </tr>
+        <tr>
+          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/mysql.png')"><img src="assets/certs/mysql.png" alt=""></button></td>
+          <td><div class="cert-name">MySQL for Data Analytics</div><div class="cert-issuer">Joins · subqueries · aggregations</div></td>
+          <td class="hide-mobile mono">Analyst Builder</td>
+          <td class="mono tnum">Dec 2025</td>
+        </tr>
+        <tr>
+          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/advanced-data-analysis.jpeg')"><img src="assets/certs/advanced-data-analysis.jpeg" alt=""></button></td>
+          <td><div class="cert-name">Advanced Data Analysis Diploma</div><div class="cert-issuer">48 accredited hours · IAO-accredited · SQL, Python, Tableau</div></td>
+          <td class="hide-mobile mono">eyouth</td>
+          <td class="mono tnum">Aug 2025</td>
+        </tr>
+        <tr>
+          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/nocode-ai.jpeg')"><img src="assets/certs/nocode-ai.jpeg" alt=""></button></td>
+          <td><div class="cert-name">No-Code AI for Business</div><div class="cert-issuer">36 workshop hours · AI-powered workflow automation</div></td>
+          <td class="hide-mobile mono">Notpy / DOTPY</td>
+          <td class="mono tnum">Jul 2025</td>
+        </tr>
+        <tr>
+          <td><button class="cert-thumb-btn" onclick="openLightbox('assets/certs/excel-powerbi.jpeg')"><img src="assets/certs/excel-powerbi.jpeg" alt=""></button></td>
+          <td><div class="cert-name">Excel &amp; Power BI for Data Analytics</div><div class="cert-issuer">40 training hours · Power Query, DAX, data modeling</div></td>
+          <td class="hide-mobile mono">Notpy / DOTPY</td>
+          <td class="mono tnum">May 2025</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">05</span><h2>Knowledge bases</h2><span class="section-tag">Self-authored guides</span></div>
+    <p style="max-width:64ch; color:var(--ink-soft); margin-top:-24px; margin-bottom:40px;">Two step-by-step reference guides I wrote while learning each tool — one habit that's stuck since law school: if I can't explain a concept clearly enough to write it down, I don't actually know it yet.</p>
+    <div class="kb-grid">
+      <div class="kb-card">
+        <div class="kb-cover t">
+          <span class="tag">Reference guide</span>
+          <h3>Tableau Knowledge Base</h3>
+          <p class="sub">From first visualization to advanced analysis — 8 modules, 20 pages.</p>
+        </div>
+        <div class="kb-modules">
+          <ol>
+            <li><b>01</b>Introduction to Tableau</li>
+            <li><b>02</b>First visualization</li>
+            <li><b>03</b>Calculations, groups &amp; bins</li>
+            <li><b>04</b>Creating dashboards</li>
+            <li><b>05</b>Joins, relationships &amp; unions</li>
+            <li><b>06</b>Storytelling, maps &amp; hierarchies</li>
+            <li><b>07</b>Different visualizations</li>
+            <li><b>08</b>Advanced data prep &amp; analysis</li>
+          </ol>
+        </div>
+      </div>
+      <div class="kb-card">
+        <div class="kb-cover p">
+          <span class="tag">Reference guide</span>
+          <h3>Power BI Knowledge Base</h3>
+          <p class="sub">Turning data into decisions — 7 modules covering the full workflow.</p>
+        </div>
+        <div class="kb-modules">
+          <ol>
+            <li><b>01</b>Introduction to Power BI</li>
+            <li><b>02</b>Connecting &amp; shaping data</li>
+            <li><b>03</b>First visualization</li>
+            <li><b>04</b>Data Analysis Expressions</li>
+            <li><b>05</b>Different visualizations</li>
+            <li><b>06</b>Building your dashboard</li>
+            <li><b>07</b>Data modeling</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">06</span><h2>Education</h2><span class="section-tag">Cairo University</span></div>
+    <div class="edu-row">
+      <div><div class="deg">Bachelor of Law</div><div class="inst">Cairo University</div></div>
+      <div class="yr tnum">2018 – 2022</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:28px;"><span class="section-num">07</span><h2>Contact</h2></div>
+    <div class="query-block">
+<span class="kw">SELECT</span> availability <span class="kw">FROM</span> omar_moussa<br>
+<span class="kw">WHERE</span> role <span class="kw">IN</span> (<span class="str">'Data Analyst'</span>, <span class="str">'BI Developer'</span>)<br>
+<span class="kw">AND</span> response_time &lt; <span class="str">'24 hours'</span>;
+    </div>
+    <div class="contact-cta">
+      <a class="pill solid" href="mailto:omarmoussa724@gmail.com">✉ omarmoussa724@gmail.com</a>
+      <a class="pill" href="https://www.linkedin.com/in/omar-moussa-a9121523b" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="pill" href="https://github.com/omarmoussa724" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="foot-bottom">
+      <span>Omar Moussa — Giza, Egypt</span>
+      <span>Built with Tableau, Power BI, SQL &amp; a law degree that taught him to read fine print</span>
+    </div>
+  </div>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox(event)">
+  <button onclick="closeLightbox(event)">Close ✕</button>
+  <img id="lightbox-img" src="" alt="Expanded view">
+</div>
+
+<script>
+function openLightbox(src){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(e){
+  document.getElementById('lightbox').classList.remove('open');
+  document.getElementById('lightbox-img').src = '';
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLightbox(e);
+});
+</script>
